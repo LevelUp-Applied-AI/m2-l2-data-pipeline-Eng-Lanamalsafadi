@@ -53,4 +53,4 @@ def test_add_features_creates_revenue():
     enriched = add_features(cleaned)
     assert 'revenue' in enriched.columns
     expected_revenue = enriched['quantity'] * enriched['unit_price']
-    pd.testing.assert_series_equal(enriched['revenue'], expected_revenue)
+    pd.testing.assert_series_equal(enriched['revenue'], expected_revenue, check_names=False)
