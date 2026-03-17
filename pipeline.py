@@ -122,7 +122,7 @@ def generate_summary(df):
     }
 
     return summary
-    pass
+    
 
 
 def create_visualizations(df, output_dir=OUTPUT_DIR):
@@ -144,7 +144,6 @@ def create_visualizations(df, output_dir=OUTPUT_DIR):
    
     os.makedirs(output_dir, exist_ok=True)
 
-    # Chart 1: Revenue by product category
     category_data = df.groupby('product_category')['revenue'].sum()
 
     fig, ax = plt.subplots(figsize=(10,6))
@@ -157,7 +156,6 @@ def create_visualizations(df, output_dir=OUTPUT_DIR):
     plt.close(fig)
 
 
-    # Chart 2: Daily revenue trend
     daily_data = df.groupby('date')['revenue'].sum().sort_index()
 
     fig, ax = plt.subplots(figsize=(10,6))
@@ -170,7 +168,6 @@ def create_visualizations(df, output_dir=OUTPUT_DIR):
     plt.close(fig)
 
 
-    # Chart 3: Average order value by payment method
     payment_data = df.groupby('payment_method')['revenue'].mean()
 
     fig, ax = plt.subplots(figsize=(10,6))
@@ -183,7 +180,7 @@ def create_visualizations(df, output_dir=OUTPUT_DIR):
     plt.close(fig)
 
 
-    pass
+    
 
 
 def main():
@@ -201,7 +198,7 @@ def main():
     create_visualizations(df)
 
     print("Pipeline complete.")
-    pass
+    
 
 
 if __name__ == "__main__":
